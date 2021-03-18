@@ -1,0 +1,35 @@
+.container {
+    position: relative;
+    width: 50%;
+  }
+  
+.overlay{
+    opacity: 0;
+    color: aqua;
+    transition: .5s ease;
+     background-color: black;
+}
+
+
+  .dis{
+      
+  position: absolute;
+  top: 60%;
+  left: 35%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  }
+
+  .container:hover .overlay{
+    opacity: 1;
+   
+/*the anchor ref should be nullified*/
+  }
+ 
+  .container:hover .img{
+    opacity: 0.5;
+   
+
+  }

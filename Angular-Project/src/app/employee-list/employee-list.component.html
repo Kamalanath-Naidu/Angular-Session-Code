@@ -1,0 +1,62 @@
+<div class= "row">
+    
+    <div class="col-sm-10">
+     
+        <!--<div (click)="getSpringBootServiceMessage()" class="btn btn-primary">SpringBootmessage</div>
+        <h6>{{messgaeFromSpringBootService}}</h6>-->
+
+       
+        
+
+
+    <h4 >List of Players: </h4> <div (click)="getEmployeeDetail()" class="btn btn-primary">SpringBootServiceTable</div>
+    
+    
+
+<table class= "table table-striped table-hover">
+
+    <thead class="thead-dark">
+
+        
+        <tr>
+            <th> Player Id</th>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> Email </th>
+            <th> Address </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let emp of empdata">
+            
+            <td> {{emp.plyid}}</td>
+            <td>{{emp.firstname }} </td>
+            <td>{{emp.lastname }} </td>
+            <td>{{emp.address1}} </td>
+            <td>{{emp.address2}} </td>
+
+
+        </tr>
+
+
+    </tbody>
+</table></div>
+<div class="col-sm-2 bg-dark pb-2">
+    <h6 style="color: bisque;">Top Performers</h6>
+    <hr color="white">
+    <h6 style="color: bisque;">Simply Pyro</h6>
+
+    
+    <img  style="margin: 1px; color: bisque; height: 2 ; width: 200;;" src="https://th.bing.com/th/id/Rd35f904213e29196fb5ce2291929f5e6?rik=NTbykOEVLVM1oA&riu=http%3a%2f%2fwww.omega-level.net%2fwp-content%2fuploads%2f2012%2f10%2fGTA-V-ARTWORK-WUT..png&ehk=8Tigsq5gFZFhPXzKZFN%2b6o1qmyJz%2f1Yr23geNYZm%2fDk%3d&risl=&pid=ImgRaw" class="img-thumbnail">
+
+    <hr color="white">
+    <h6 style="color: bisque;">Shy-Rony</h6>
+    <img src="https://pbs.twimg.com/media/EfdiqQwX0AAOukV.jpg" class="img-thumbnail">
+
+    <hr color="white">
+    <h6 style="color: bisque;">Machine gun Preacher</h6>
+    <img src="https://media.altchar.com/prod/images/940_530/gm-6045ba8f-fe1e-4d47-b3cf-b725349f825f-583d59b63997d863b6dee4770a9be67ff5ebbbf9.jpg" class="img-thumbnail">
+
+</div>
+</div>
