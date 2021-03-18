@@ -5,3 +5,6 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/Kamalanath-Naidu/Angular-Session-Code.git
 git push -u origin main
+
+
+File location where git is intialised:P:\NODE\Css_UI\Session
