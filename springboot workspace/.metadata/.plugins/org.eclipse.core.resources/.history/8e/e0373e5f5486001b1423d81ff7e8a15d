@@ -1,0 +1,70 @@
+package com.player.management.pms.system;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+import java.net.URI;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.player.management.pms.system.DataAccessLayer.PmsRestRepositories;
+import com.player.management.pms.system.DataAccessLayer.PmsRestUserRepositories;
+//import com.sun.org.apache.xerces.internal.util.URI;
+import com.player.management.pms.system.DataAccessLayer.PmsJPAEntities;
+import com.player.management.pms.system.DataAccessLayer.PmsJPAUserEntities;
+//import com.player.management.pms.system.DataAccessLayer.PmsRestRepositories;
+
+@CrossOrigin(origins="http://localhost:4200")
+@RestController
+
+
+public class PmsRestController {
+	@Autowired
+	private PmsRestRepositories pmsrestrepositories;
+	@Autowired
+	private PmsRestUserRepositories  pmsrestuserrepositories;
+@RequestMapping("/")
+	@GetMapping(path="/springboot-service")
+	public String springboot() {
+		return "Spring Boot Service Test";
+	}
+	@GetMapping(path="/springboot-service-module")
+	public PmsServicesModule springbootTestModule() {
+		
+		//return new PmsServicesModule("Spring Boot ServicesModule Test");
+		PmsServicesModule obj=new PmsServicesModule("Spring boot Module");
+		return obj;
+}
+	//@GetMapping(path= "/springboot/employeelist")
+	  //  public List<PmsJPAEntities> getplayerList(){
+	//	return pmsrestrepositories.findAll();
+	//}
+	@GetMapping(path= "/springboot/employeelist/{plyId}")
+    public PmsJPAEntities getplayerRecord(@PathVariable long plyId){
+	return pmsrestrepositories.findById(plyId).get();
+}
+	@PostMapping(path="/spring/createUserDetails")
+	public ResponseEntity<Void>  createUserPms(@RequestBody PmsJPAUserEntities userdata){
+	
+		PmsJPAUserEntities createdUserPms = pmsrestuserrepositories.save(userdata);
+		
+		URI uri= ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(createdUserPms.getUser_id()).toUri();
+	
+		return ResponseEntity.created(uri).build();
+	}
+	@GetMapping(path= "/springboot/userlist")
+    public List<PmsJPAUserEntities> getplayerList(){
+	return pmsrestuserrepositories.findAll();
+}
+	
+}
+	

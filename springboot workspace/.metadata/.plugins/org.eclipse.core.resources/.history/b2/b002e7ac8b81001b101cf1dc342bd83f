@@ -1,0 +1,7 @@
+spring.jpa.hibernate.ddl-auto=none
+spring.datasource.drive-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/player-manage-system
+spring.datasource.username=playerdb
+spring.datasource.password=playerdb
+logging.level.root=WARN
+
