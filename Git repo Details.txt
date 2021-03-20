@@ -8,3 +8,11 @@ git push -u origin main
 
 
 File location where git is intialised:P:\NODE\Css_UI\Session
+
+Adding  to ne location:
+git remote add origin https://github.com/Kamalanath-Naidu/Angular-Session-Code.git
+git branch -M main
+git push -u origin main
+
+Pull request details:
+https://github.com/Kamalanath-Naidu/Angular-Session-Code.git

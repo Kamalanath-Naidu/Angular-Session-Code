@@ -44,10 +44,10 @@ public class PmsRestController {
 		PmsServicesModule obj=new PmsServicesModule("Spring boot Module");
 		return obj;
 }
-	//@GetMapping(path= "/springboot/employeelist")
-	  //  public List<PmsJPAEntities> getplayerList(){
-	//	return pmsrestrepositories.findAll();
-	//}
+	@GetMapping(path= "/springboot/employeelist")
+	    public List<PmsJPAEntities> getplayerList(){
+		return pmsrestrepositories.findAll();
+	}
 	@GetMapping(path= "/springboot/employeelist/{plyId}")
     public PmsJPAEntities getplayerRecord(@PathVariable long plyId){
 	return pmsrestrepositories.findById(plyId).get();
@@ -62,7 +62,7 @@ public class PmsRestController {
 		return ResponseEntity.created(uri).build();
 	}
 	@GetMapping(path= "/springboot/userlist")
-    public List<PmsJPAUserEntities> getplayerList(){
+    public List<PmsJPAUserEntities> getUserList(){
 	return pmsrestuserrepositories.findAll();
 }
 	@GetMapping(path = "/springboot/userRecord/{user_id}")

@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="User_id"/>
+		<item key="selection" value="getUserList"/>
 		<list key="findhistory">
+			<item value="getUserList"/>
+			<item value="getplayerList"/>
 			<item value="user_id"/>
 			<item value="entityManagerFactory"/>
 			<item value="&#x09;&#x09;&#x09;throw new HibernateException( &quot;Access to DialectResolutionInfo cannot be null when &apos;hibernate.dialect&apos; not set&quot; );"/>
@@ -16,7 +18,7 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1168"/>
+		<item key="DIALOG_X_ORIGIN" value="879"/>
 		<item key="DIALOG_Y_ORIGIN" value="177"/>
 		<item key="DIALOG_WIDTH" value="336"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
