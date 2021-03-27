@@ -1,5 +1,0 @@
-package com.player.management.pms.system.DataAccessLayer;
-
-public class PmsRestUserRepositories {
-
-}

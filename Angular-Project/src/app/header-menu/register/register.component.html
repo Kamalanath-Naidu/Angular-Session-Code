@@ -1,71 +1,177 @@
-<form class="form-horizontal text-center" action='' method="POST"><!--<div style="background-image: url('img_girl.jpg');"></div>-->
-    <fieldset>
-      <div id="legend">
-        <legend class="">Register</legend>
-      </div><br>
-      <div class="control-group row">
-        <!-- Username -->
-        <label class="control-label-lg col-md-4"  for="username">Firstname</label>
-        <div class="controls col-md-6">
-          <input type="text" id="firstname" name="username" placeholder="" class="input-xlarge">
-          <p class="help-block">Firstname can contain any letters or numbers, without spaces</p>
-        </div>
-      </div>
-         
-      <div class="control-group row">
-      <label class="control-label col-md-4"  for="username">Lastname</label>
-        <div class="controls col-md-6">
-          <input type="text" id="lastname" name="username" placeholder="" class="input-xlarge">
-          <p class="help-block">Lastname can contain any letters or numbers, without spaces</p>
-        </div>
-      </div>
-   
-      <div class="control-group row">
-        <!-- E-mail -->
-        <label class="control-label col-md-4" for="email">E-mail</label>
-        <div class="controls col-md-6">
-          <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
-          <p class="help-block">Please provide your E-mail</p>
-        </div>
-      </div>
-   
-      <div class="control-group row">
-        <!-- Password-->
-        <label class="control-label col-md-4" for="password">Password</label>
-        <div class="controls col-md-6">
-          <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-          <p class="help-block">Password should be at least 4 characters</p>
-        </div>
-      </div>
-   
-      <div class="control-group row">
-        <!-- Password -->
-        <label class="control-label col-md-4"  for="password_confirm">Password (Confirm)</label>
-        <div class="controls col-md-6">
-          <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
-          <p class="help-block">Please confirm password</p>
-        </div>
-      </div><br>
+<!--<form class="form-horizontal text-center" action='' method="POST">
+ 
 
-      <div class="control-group row">
-        <!-- Password -->
-        <label class="control-label col-md-1"  for="password_confirm">Address1</label>
-        <div class="controls col-md-4">
-          <input type="password" id="address1" name="password_confirm" placeholder="" class="input-xlarge">
-          <p class="help-block">Please Provide Local Address</p>
-        </div><p class="col-md-2">   </p>
-        <label class="control-label col-md-1"  for="password_confirm">Address2</label>
-        <div class="controls col-md-4">
-          <input type="password" id="address2" name="password_confirm" placeholder="" class="input-xlarge">
-          <p class="help-block">Please Provide State & Country</p>
+ 
+    <form>
+      
+      <div class="row">
+        <label for="inputEmail" class="visually-hidden col-md-4">Email address:</label>
+        <div class="col-md-6">
+          <input type="email" [(ngModel)]="user_details.emailId" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+           
         </div>
+      </div><br>
+      <div class="row">
+        <label for="inputEmail" class="visually-hidden col-md-4">First Name</label>
+        <div class="col-md-6">
+          <input type="text" [(ngModel)]="user_details.firstname"  id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        </div>
+      </div><br>
+      <div class="row">
+        <label for="inputEmail" class="visually-hidden col-md-4">Last Name</label>
+        <div class="col-md-6">
+          <input type="text" [(ngModel)]="user_details.lastname"  id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        </div>
+      </div><br>
+      <div class="row">
+        <label for="inputPassword" class="visually-hidden col-md-4">Password:</label>
+        <div class="col-md-6">
+          <input type="password" [(ngModel)]="user_details.password"  id="inputPassword" class="form-control" placeholder="Password" required>
+        </div>
+      </div><br>
+      <div class="row">
+        <label for="inputPassword" class="visually-hidden col-md-4" > Confirm Password:</label>
+        <div class="col-md-6">
+          <input type="password" [(ngModel)]="user_details.password"  id="inputPassword" class="form-control" placeholder="Password" required>
+        </div>
+      </div>
+
+      <div class="checkbox mb-3"><br>
+
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+
+
+    </form>
+  </div>
+  <div class="control-group">
+   
+    <div class="controls">
+      <button class="btn btn-success" (click)='saveuserDetail()'  href="#">Register</button>
+    </div>
+  </div>
+
+</form>-->
+<div class="container-fluid row">
+  <div class="col-sm-6 mt-6" >
+      
+  <h5 class="pt-3 text-center">Sign Up !! </h5>
+  
+<!--<div class="text-danger" *ngIf="signupForm.invalid">Enter Valid cred</div>-->
+<div *ngIf="first_name.errors && (first_name.invalid && first_name.dirty)">
+  <small class="text-danger" *ngIf="first_name.errors.required">First Name is required</small>
+  <small class="text-danger" *ngIf="first_name.errors.pattern">First Name takes only characters</small>
+  <small class="text-danger" *ngIf="first_name.errors.minlenght">First Name should have minimum 3 characters</small>
+</div>
+<div *ngIf="last_name.errors && (last_name.invalid && last_name.dirty)">
+  <small class="text-danger" *ngIf="last_name.errors.required">last Name is required</small>
+  <small class="text-danger" *ngIf="last_name.errors.pattern">last Name takes only char</small>
+  <small class="text-danger" *ngIf="last_name.errors.minlenght">last Name should have minimum 3 characters</small>
+</div>
+
+<div *ngIf="email_id.errors && (email_id.invalid && email_id.dirty)">
+  <small class="text-danger" *ngIf="email_id.errors.required">email_id is required</small>
+  <!--<small class="text-danger" *ngIf="email_id.errors.pattern">email_id takes only characters or numbers</small>-->
+  
+</div>
+<div *ngIf="user_name.errors && (user_name.invalid && user_name.dirty)">
+  <small class="text-danger" *ngIf="user_name.errors.required">userName is required</small>
+  <small class="text-danger" *ngIf="user_name.errors.pattern">userName takes only characters or numbers</small>  
+</div>
+
+
+<div *ngIf="passcode.errors && (passcode.invalid && passcode.dirty)">
+  <small class="text-danger" *ngIf="passcode.errors.required">Password is required</small>
+  <small class="text-danger" *ngIf="passcode.errors.minlength">Password minimum should have minimum 5 characters</small>
+  
+</div>
+
+<div *ngIf="cpasscode.errors && (cpasscode.invalid && cpasscode.dirty)">
+  <small class="text-danger" *ngIf="cpasscode.errors.required">Password conformation is required</small>
+  <small class="text-danger" *ngIf="cpasscode.errors.minlength">Password conformation should have minimum 5 characters</small>
+  
+</div>
+
+<div *ngIf="(cpasscode.dirty && (user_details.passcode!==user_details.cpasscode))">
+  <small class="text-danger" >Password and confirm password is not matching </small>   
+</div>
+
+<div *ngIf="userNameExists">
+  <small class="text-danger" >User name and emailId exists</small>   
+</div>
+
+<div *ngIf="username_useremailid_exists">
+  <small class="text-danger" >User name Already exists</small>   
+</div>
+
+<div *ngIf="useremailidexists">
+  <small class="text-danger" >Email Id Already exists</small>   
+</div>
+
+  <form class="mt-6 pt-3 pb-3" (ngSubmit)="!signupForm.invalid && saveuserDetail()"  #signupForm="ngForm" >
+      <div class="form-group row pt-3">
+         
+          <div class="col-sm-1"> </div>    
+          <div class="col-sm-10" style="border-top: 1px solid#888; padding-top:15px; font-size:85%" > </div>
+          <div class="col-sm-1"> </div>    
+      </div>
+      <div class="form-group row">
+          <div class="col-sm-6">
+              <input type="text" [(ngModel)]="user_details.first_name" #first_name="ngModel" class="form-control form-control-sm" name="firstName" placeholder="First Name" 
+              required="required"  pattern="[a-zA-Z]+" minlength="3">
+             
+            </div>
+          <div class="col-sm-6">
+              <input type="text" [(ngModel)]="user_details.lastname" #last_name="ngModel" class="form-control form-control-sm" name="lastName" placeholder="Last Name"
+               required="required" pattern="[a-zA-Z]+" minlength="1">
+          </div>
       </div>
    
-      <div class="control-group">
-        <!-- Button -->
-        <div class="controls">
-          <button class="btn btn-success" href="#">Register</button>
-        </div>
+
+<div class="form-group row">
+          <div class="col-sm-6">
+              <input type="email" [(ngModel)]="user_details.email_id" #email_id="ngModel" class="form-control form-control-sm" name="emailId" placeholder="Email Id" 
+              required="required" minlength="3"><!-- pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$"-->
+          </div>
+          <div class="col-sm-6">
+              <input type="text" [(ngModel)]="user_details.username" #user_name="ngModel" class="form-control form-control-sm" name="userName" placeholder="User Name" 
+              required="required"  pattern="[a-zA-Z0-9]+" minlength="3">
+          </div>
       </div>
-    </fieldset>
+
+<div class="form-group row">
+          <div class="col-sm-6">
+              <input type="password" [(ngModel)]="user_details.passcode" #passcode="ngModel" class="form-control form-control-sm" name="passcode" placeholder="Password" 
+              required="required" minlength="5" ><!--atleast one number and alphabet-->
+          </div>
+          <div class="col-sm-6">
+              <input type="password" [(ngModel)]="user_details.cpasscode" #cpasscode="ngModel" class="form-control form-control-sm"  name="confirmpasscode"   placeholder="Confirm Password" 
+              required="required"  minlength="5">
+          </div>
+      </div>
+
+
+<div class="form-group row pt-3">
+         
+          <div class="col-sm-1"> </div>    
+          <div class="col-sm-10" style="border-top: 1px solid#888; padding-top:15px; font-size:85%" > </div>
+          <div class="col-sm-1"> </div>    
+      </div>
+      <div class="form-group row">                
+             
+          <div class="col-sm-5"> </div>
+          <div class="col-sm-6">
+              <!--<button type="submit" (click)='saveuserDetail()'  class="btn btn-sm btn-primary " >Sign Up</button>-->
+              <button type="submit" class="btn btn-sm btn-primary " >Sign Up</button>
+          </div>
+      </div>
   </form>
+
+</div>
+<div class="col-sm-6">
+  <img src="assets/login.jpeg" width="500" height="410">
+</div>
+</div>
+

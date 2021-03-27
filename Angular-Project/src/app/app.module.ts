@@ -15,7 +15,8 @@ import { ReferComponent } from './left-panel/refer/refer.component';
 import { HowerdisplayDirective } from './Directives/howerdisplay.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPageComponent } from './header-menu/login-page/login-page.component';
-import { RegisterComponent } from './header-menu/register/register.component' 
+import { RegisterComponent } from './header-menu/register/register.component' ;
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { RegisterComponent } from './header-menu/register/register.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

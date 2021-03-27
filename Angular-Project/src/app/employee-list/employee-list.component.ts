@@ -3,9 +3,8 @@ import { EmployeeDetails } from './employee-details';
 import { SpringbootPmsServicesService } from './../service/service-layer/springboot-pms-services.service'
 
 
-export class EmpDetail{
-  constructor(public plyid: number, public firstname:string, public lastname:string,public address1:string,public address2:string)  
-  {}
+export class EmpDetail {
+  constructor(public plyid: number, public firstname: string, public lastname: string, public address1: string, public address2: string) { }
 }
 
 
@@ -16,30 +15,32 @@ export class EmpDetail{
 })
 export class EmployeeListComponent implements OnInit {
 
-//empDetails:[]= EmpDetail[];
-  messgaeFromSpringBootService:string;
-   argName=" ";
-   empdata:EmpDetail[];
-   onscreenload=true;
+  //empDetails:[]= EmpDetail[];
+  messgaeFromSpringBootService: string;
+  argName = " ";
+  empdata: EmpDetail[];
+  onscreenload = true;
 
-  constructor(private service:SpringbootPmsServicesService) { }
+  constructor(private service: SpringbootPmsServicesService) { }
 
   ngOnInit(): void {
-    
+
 
 
   }
 
-  getSpringBootServiceMessage(){
-    this.service.executeSpringBootService().subscribe(//within this we get JSON data
-      response=>{this.messgaeFromSpringBootService=response.message;} 
-     // response =>this.SuccessResponse(response)
-    )
-  }//empDetails:[]= EmpDetail[];
-  getEmployeeDetail(){
+  getSpringBootServiceMessage() {
+    this.service.executeSpringBootService()
+      //within this we get JSON data
+      .subscribe((response: string) => {
+        this.messgaeFromSpringBootService = response;
+      });
+  }
+
+  getEmployeeDetail() {
     this.service.executeSpringBootServicetoGetEmployeeDetails().subscribe(
       //response =>{this.empDetails = response;}
-      data =>{this.successResponse(data);}
+      data => { this.successResponse(data); }
     )
   }
 
@@ -48,21 +49,21 @@ export class EmployeeListComponent implements OnInit {
       console.log(response.message);
       this.messgaeFromSpringBootService=response.message;
     }*/
-    successResponse(data){
-     this.empdata=data;
-     console.log(this.empdata);
-    }
-  
+  successResponse(data) {
+    this.empdata = data;
+    console.log(this.empdata);
+  }
+
+
+  /*employeeList: EmployeeDetails [] = [
  
- /*employeeList: EmployeeDetails [] = [
-
-    new EmployeeDetails("Rajesh", " Kumar", "rajesh.kumar@gmailcom", "Address11111"),
-    new EmployeeDetails("Rajesh", " Kumar", "rajesh.kumar@gmailcom", "Address11111"),
-    new EmployeeDetails("Rajesh", " Kumar", "rajesh.kumar@gmailcom", "Address11111"),
-    new EmployeeDetails("Rajesh", " Kumar", "rajesh.kumar@gmailcom", "Address11111"),
-    new EmployeeDetails("Rajesh", " Kumar", "rajesh.kumar@gmailcom", "Address11111")
-
-   ]*/
+     new EmployeeDetails("Rajesh", " Kumar", "rajesh.kumar@gmailcom", "Address11111"),
+     new EmployeeDetails("Rajesh", " Kumar", "rajesh.kumar@gmailcom", "Address11111"),
+     new EmployeeDetails("Rajesh", " Kumar", "rajesh.kumar@gmailcom", "Address11111"),
+     new EmployeeDetails("Rajesh", " Kumar", "rajesh.kumar@gmailcom", "Address11111"),
+     new EmployeeDetails("Rajesh", " Kumar", "rajesh.kumar@gmailcom", "Address11111")
+ 
+    ]*/
 
 
 }

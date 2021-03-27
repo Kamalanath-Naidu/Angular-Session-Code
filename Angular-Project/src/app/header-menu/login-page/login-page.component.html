@@ -1,28 +1,57 @@
+<div class="text-center container-fluid">
 
-<div class="text-center ">
-    
-    <main class="form-signin ">
-      <form>
-        <!--<img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-        <div class="row">
-        <label for="inputEmail" class="visually-hidden col-md-4">Email address:</label><div class="col-md-6">
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus></div></div><br>
-        <div class="row">
-        <label for="inputPassword" class="visually-hidden col-md-4">Password:</label><div class="col-md-6">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required></div></div>
-        <div class="checkbox mb-3"><br>
-          <label >
-            <input type="checkbox" > Remember me
-          </label>
-        </div>
-        <button class=" btn btn-lg btn-success "  type="submit">Sign in</button>
+
+  <form (ngSubmit)="Logincheck()">
+    <!--<img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div *ngIf="emailidmismatch">
+      <small class="text-danger">Email Id dosent match</small>
+    </div>
+    <div *ngIf="passwordmismatch">
+      <small class="text-danger">Password dosent match</small>
+    </div>
+    <div *ngIf="passwordAndEmailMismatch">
+      <small class="text-danger">Password and Email Id dose not match.</small>
+    </div>
+
+    <!--<div class="form-group row">
+        <label for="inputEmail"  class="visually-hidden col-md-4">Email address:</label><div class="col-md-6">
+        <input type="email" id="inputEmail" [(ngModel)]="pass.email_id" class="form-control" placeholder="Email address" required autofocus></div>
+        <br>
+        <br>
         
-      </form>
-    </main>
-    <br><p>New Here , Kindly register first</p>
-        <button class=" btn btn-lg btn-primary "  type="submit" routerLink="register">Register</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2021–2021</p>
-       
         
+        <label for="inputPassword"  class="visually-hidden col-md-4">Password:</label><div class="col-md-6">
+        <input type="password" id="inputPassword" [(ngModel)]="pass.passcode" class="form-control" placeholder="Password" required></div></div>
+        <div class="checkbox mb-3"><br></div>-->
+    <!---------------------------------------------------------------------------->
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <input type="text" [(ngModel)]="pass.email_id" #mail_id="ngModel" class="form-control form-control-sm"
+          name="firstName" placeholder="Mail Id">
+
+      </div>
+      <div class="col-sm-6">
+        <input type="text" [(ngModel)]="pass.passcode" #passcode="ngModel" class="form-control form-control-sm"
+          name="lastName" placeholder="Password">
+      </div>
+    </div>
+
+    <!---------------------------------------------------------------------------->
+
+    <label>
+      <input type="checkbox"> Remember me
+    </label>
+    <br>
+    <button class=" btn btn-lg btn-success " type="submit">Sign in</button>
+
+  </form>
+
+  <br>
+  <p>New Here , Kindly register first</p>
+  <button class=" btn btn-lg btn-primary " type="submit" routerLink="register">Register</button>
+  <p class="mt-5 mb-3 text-muted">&copy; 2021–2021</p>
+
+
 </div>
