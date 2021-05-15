@@ -2,14 +2,21 @@ package com.player.management.pms.system.DataAccessLayer;
 
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
+import com.player.management.pms.system.*;
+import com.player.management.pms.system.SecurityService.Pms_Encrypt_Decrypt;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 @Entity
 @Table(name = "user_table")
@@ -30,6 +37,12 @@ public class PmsJPAUserEntities {
 	private String email_id;
 	@Column(name = "passcode")
 	private String passcode;
+	@Column(name = "crypt")
+	private String crypt;
+	@OneToMany(cascade=CascadeType.ALL,mappedBy = "users")//(targetEntity = com.player.management.pms.system.DataAccessLayer.PmsProfileEntities.class, mappedBy = "user_id",cascade=CascadeType.ALL)
+	private List<PmsProfileEntities> profiles;
+
+
 
 	protected PmsJPAUserEntities() {
 
@@ -89,6 +102,16 @@ public class PmsJPAUserEntities {
 		this.passcode = passcode;
 	}
 
+	public String getCrypt() {
+		return crypt;
+	}
+
+	public void setCrypt(String encrypted) {
+		this.crypt = encrypted;
+	}
+	
+	
+	
 	public boolean validateUserName(Object obj) {
 
 		if (this == obj)
@@ -130,10 +153,60 @@ public class PmsJPAUserEntities {
 			return false;
 
 		PmsJPAUserEntities user = (PmsJPAUserEntities) obj;
+		System.out.println("Password Id Validation: " + Objects.equals(passcode, user.passcode));//ende.decrypt(getCrypt(), passcode)
 
-		System.out.println("Password Id Validation: " + Objects.equals(passcode, user.passcode));
 
-		return Objects.equals(passcode, user.passcode);
+		return Objects.equals(passcode, user.passcode);//(crypt, user.crypt)
 	}
+
+
+
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	
+	if (obj == null)
+		return false;
+	
+	PmsJPAUserEntities user = (PmsJPAUserEntities) obj;
+	
+	return Objects.equals(email_id, user.email_id) && Objects.equals(passcode, user.passcode);
+}
+
+
+
+public boolean validateMailandUser(Object obj,boolean x) {
+
+	if (this == obj)
+		return true;
+
+	if (obj == null)
+		return false;
+/*switch case for all conditions but now for if */
+	
+	PmsJPAUserEntities user = (PmsJPAUserEntities) obj;
+	
+	if(x==true) {
+	
+	System.out.println("Username and Email Id Validation: " +( Objects.equals(email_id, user.email_id) && Objects.equals(username,user.username)));
+
+		
+	return Objects.equals(email_id, user.email_id) || Objects.equals(username,user.username);
+	
+	
+	}
+	
+	else if(x==false) {
+	
+
+	System.out.println("Username and Email Id Validation: "	 +( Objects.equals(email_id, user.email_id) && Objects.equals(passcode,user.passcode)));
+
+	return Objects.equals(email_id, user.email_id) && Objects.equals(passcode,user.passcode);
+}
+	return true;
+}
+
+
 
 }
