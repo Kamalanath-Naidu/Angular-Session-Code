@@ -1,0 +1,63 @@
+<h2 bg-dark>Welecome User : {{this.sessionmanage.getUserId()}}</h2>
+<br>
+<form class="form-line">
+    <div class="row">
+        <div class="col-sm-2">
+            <ng-select [items]="choices" name="search" bindLabel="name" placeholder="Select Search criteria"
+                bindValue="name" [(ngModel)]="selectedChoiceName">
+            </ng-select>{{selectedChoiceName }}
+
+        </div>
+        <div class="col-sm-2">
+            <input type="text" width="20" height="50" class="mr-2" name="input" [(ngModel)]="searchInput"
+                placeholder="Search" (keyup)=searchMethod()>
+            {{searchInput| json}}
+        </div>
+
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+            <select (change)="onTableSizeChange($event)" class="custom-select">
+                <option *ngFor="let size of pageSizes" [ngValue]="size">
+                    {{size}}
+                </option>
+            </select>
+        </div>
+
+    </div>
+    <br>
+</form>
+
+<table class="table table-stripped">
+    <thead class="thead-dark">
+        <tr>
+            <th *ngFor="let item of head">{{item}}</th>
+        </tr>
+    </thead>
+    <tbody><!-- itemsPerPage: profilePagination.itemsPerPage, -->
+        <tr *ngFor="let item of displayProfiles | paginate: {
+             itemsPerPage: profilePagination.itemsPerPage, 
+            currentPage: profilePagination.currentPage,
+            totalItems: profilePagination.totalItems
+        }">
+            <td>{{item.profile_id}}</td>
+            <td>{{item.first_name}}</td>
+            <td>{{item.last_name}}</td>
+            <td>{{item.nuemail_id}}</td>
+            <td>{{item.phone}}</td>
+            <td>{{item.gender}}</td>
+            <td>{{item.undergrade}}</td>
+            <td>{{item.postgrade}}</td>
+            <td>{{item.techeng}}</td>
+            <td>{{item.exp}}</td>
+            <td>{{item.user_id}}</td>
+            <td>{{item.preproject}}</td>
+        </tr>
+    </tbody>
+
+
+</table>
+<div class="d-flex justify-content-center">
+    <pagination-controls responsive="true" previousLabel="Prev" nextLabel="Next"
+        (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
+</div>

@@ -1,0 +1,209 @@
+<h3>Employee Admin Page</h3>
+
+
+<!--    <form class = "form-horizontal"  [formGroup]="Val" role = "form" #formdir="ngForm">
+      <div class="cross-validation" 
+      [class.cross-validation-error]="Val.errors?.identityRevealed && (Val.touched || Val.dirty)">
+
+      <div class = "form-group row">
+         <div class="col-sm-1"></div>
+         <label for = "herp.firstname"  class = "col-sm-1 control-label">First Name</label>
+         <div class = "col-sm-4">
+            <input type = "text" class = "form-control" id = "herp.firstname" formControlName="herp.firstname" 
+            placeholder = "Enter First Name" required>
+            <!--<div *ngIf="herp.firstname?.invalid && (herp.firstname?.dirty || herp.firstname?.touched)"
+            class="alert alert-danger">
+
+          <div *ngIf="herp.firstname.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="herp.firstname.errors.minlength">
+            Name must be at least 4 characters long.
+          </div>
+          <div *ngIf="herp.firstname.errors.forbiddenName">
+            Name cannot be Bob.
+          </div>
+        </div>-->
+<!--   </div>
+      
+      
+         <label for = "lastname" class = "col-sm-1 control-label">Last Name</label>
+         <div class = "col-sm-4">
+            <input type = "text" class = "form-control" id = "lastname" placeholder = "Enter Last Name">
+          </div>
+          <div class="col-sm-1"></div>
+      </div>
+
+
+
+        <div class = "form-group row">
+           <div class="col-sm-1"></div>
+           <label for = "emailid" class = "col-sm-1 control-label">Email</label>
+           <div class = "col-sm-4">
+              <input type = "text" class = "form-control" id = "emailid" placeholder = "Mail Id">
+           </div>
+        
+        
+           <label for = "Authorizer" class = "col-sm-1 control-label">Authorizer</label>
+           <div class = "col-sm-4">
+              <input type = "text" class = "form-control" id = "Authorizer" placeholder = "Name of Authorizer">
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+
+        <div class = "form-group row">
+         <div class="col-sm-1"></div>
+         <label for = "age" class = "col-sm-1 control-label">DOB</label>
+         <div class = "col-sm-2">
+            
+         </div>
+         <div class="col-sm-1"></div>
+         <div class="col-sm-1"></div>
+         <div class="col-sm-2">
+            <label for = "Gender" class = "col-sm-2 control-label">Gender</label>
+            <div class = "col-sm-2">
+               
+             </div>
+         </div>
+      </div></div></form>
+
+
+    
+<button type="radio">Add Emp</button>-->
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+
+
+
+  <div class="form-row mb-4">
+
+    <label class="col-sm-2">First Name:</label>
+    <div class="col-sm-4">
+      <input type="text" formControlName="firstName" id="defaultRegisterFormFirstName" class="form-control"
+        placeholder="First name">
+    </div>
+    <label class="col-sm-2">Last Name:</label>
+    <div class="col-sm-4">
+      <input type="text" formControlName="lastName" id="defaultRegisterFormLastName" class="form-control"
+        placeholder="Last name">
+    </div>
+  </div>
+  <div class="form-row mb-4">
+    <label class="col-sm-2">Email:</label>
+    <div class="col-sm-4">
+      <input type="email" formControlName="email" id="defaultRegisterFormEmail" class="form-control mb-4"
+        placeholder="E-mail">
+    </div>
+    <label class="col-sm-2">Phone :</label>
+    <div class="col-sm-4">
+      <input type="text" formControlName="Phone" id="defaultRegisterFormPhone" class="form-control mb-4"
+        placeholder="Phone Number with code">
+    </div>
+  </div>
+  <div class="form-row  mb-4">
+
+    <label for="age" class="col-sm-2 ">DOB: </label>
+    <input type="date" id="defaultRegisterFormDob"><!--formControlName="DOB" -->
+    <div class="col-sm-2"></div>
+
+    <label for="Gender" class="col-sm-2 control-label">Gender: </label>
+
+    <div class="custom-control custom-radio custom-control-inline">
+
+      <input type="radio" class="custom-control-input" name="options" id="option1">
+      <label class="col-sm-1" class="custom-control-label" for="option1">M</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+
+      <input type="radio" class="custom-control-input" name="options" id="option2">
+      <label class="col-sm-1" class="custom-control-label" for="option2">F</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+
+      <input type="radio" class="custom-control-input" name="options" id="option3">
+      <label class="col-sm-2" class="custom-control-label" for="option3">Other</label>
+    </div>
+
+  </div>
+
+  <div class="form-row mb-4">
+    <label class="col-sm-2">Address1:</label>
+    <div class="col-sm-4">
+      <input type="text"  id="defaultRegisterFormAddress1" class="form-control mb-4"
+        placeholder="Address"><!--formControlName="address1"-->
+    </div>
+    <label class="col-sm-2">Address2:</label>
+    <div class="col-sm-4">
+      <input type="text"  id="defaultRegisterFormAddress2" class="form-control mb-4"
+        placeholder="Address"><!--formControlName="address2"-->
+    </div>
+  </div>
+
+  <div class="form-row mb-4">
+    <label class="col-sm-1">City:</label>
+    <div class="col-sm-3">
+      <input type="text"  id="defaultRegisterFormcity" class="form-control mb-4"
+        placeholder="City"><!--formControlName="city"-->
+    </div>
+    <label class="col-sm-1">State:</label>
+    <div class="col-sm-3">
+      <input type="text"  id="defaultRegisterFormstate" class="form-control mb-4"
+        placeholder="State"><!--formControlName="state"-->
+    </div>
+    <label class="col-sm-1">Zip code:</label>
+    <div class="col-sm-3">
+      <input type="text"  id="defaultRegisterFormzip" class="form-control mb-4"
+        placeholder="Zip code"><!--formControlName="zip"-->
+    </div>
+  </div>
+
+  <div class="form-row mb-4">
+    <label class="col-sm-2">Under Graduation :</label>
+    <div class="col-sm-4">
+      <ng-select [items]="UG" bindLabel="name" placeholder="Select UG"></ng-select>
+    </div>
+    <label class="col-sm-2">Post graduation:</label>
+    <div class="col-sm-4">
+      <ng-select [items]="PG" bindLabel="name" placeholder="Select PG"></ng-select>
+    </div>
+  </div>
+
+  <!-- <div class="form-row mb-4">
+    <label class="col-sm-2">Certification:</label>
+    <div class="col-sm-4">
+      <ng-multiselect-dropdown #multiSelect 
+      [data]="dropdownList" 
+      [settings]="dropdownSettings"
+      (onSelect)="onItemSelect($event)" 
+      (onSelectAll)="onSelectAll($event)" 
+      [disabled]="false" >
+      </ng-multiselect-dropdown>
+    </div>
+    <label class="col-sm-2">Tech Engine:</label>
+    <div class="col-sm-4">
+      <ng-multiselect-dropdown #multiSelect 
+      [data]="dropdownList" 
+      [settings]="dropdownSettings"
+      (onSelect)="onItemSelect($event)" 
+      (onSelectAll)="onSelectAll($event)" 
+      [disabled]="false" >
+      </ng-multiselect-dropdown>
+    </div>
+  </div> -->
+
+  <div class="form-row mb-4">
+    <label class="col-sm-2">Experience :</label>
+    <div class="col-sm-4">
+      <ng-select [items]="exp" bindLabel="name" placeholder="Provide exp level"></ng-select>
+    </div>
+    <label class="col-sm-2" id="defaultRegisterFormproject">Previous Project:</label>
+    <div class="col-sm-4">
+      <input type="text"  id="defaultRegisterFormproject" class="form-control mb-4"
+        placeholder="Previous Project">
+    </div>
+  </div>
+
+  <button class="btn btn-info my-4 btn-block" type="submit">Create Assosiate</button>
+
+  <hr>
+
+</form>
