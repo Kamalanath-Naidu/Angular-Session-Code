@@ -1,0 +1,5 @@
+package com.player.management.pms.system.service.impl;
+
+public class UserServiceImpl {
+
+}

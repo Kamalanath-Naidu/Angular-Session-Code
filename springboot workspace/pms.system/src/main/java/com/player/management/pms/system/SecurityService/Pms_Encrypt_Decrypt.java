@@ -1,4 +1,4 @@
-package com.player.management.pms.system.SecurityService;
+package com.player.management.pms.system.securityService;
 
 
 import java.io.UnsupportedEncodingException;

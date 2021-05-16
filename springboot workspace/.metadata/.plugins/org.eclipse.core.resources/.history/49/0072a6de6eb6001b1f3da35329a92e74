@@ -1,0 +1,13 @@
+package com.player.management.pms.system.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.player.management.pms.system.dataAccessLayer.UserRepository;
+import com.player.management.pms.system.service.UserService;
+
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserRepository userRepository;
+	
+}

@@ -1,4 +1,4 @@
-package com.player.management.pms.system.DataAccessLayer;
+package com.player.management.pms.system.dataAccessLayer;
 
 import java.util.Objects;
 
@@ -15,73 +15,64 @@ import com.player.management.pms.system.*;
 @Data
 public class PmsUserProfileDTO {
 	@Id
-	
-	private long user_id;	
+
+	private long user_id;
 	private String username;
 	private String email_id;
-	private long profile_id;	
-	private String first_name;	
-	private String last_name;	
-	private String dob;	
-	private String nuemail_id;	
-	private String address1;	
-	private String address2;	
-	private String city;	
-	private String state;	
-	private String zip;	
-	private String phone;	
-	private String gender;	
-	private String undergrade;	
-	private String postgrade;	
-	private String certfication;	
-	private String techeng;	
-	private String exp;	
+	private long profile_id;
+	private String first_name;
+	private String last_name;
+	private String dob;
+	private String nuemail_id;
+	private String address1;
+	private String address2;
+	private String city;
+	private String state;
+	private String zip;
+	private String phone;
+	private String gender;
+	private String undergrade;
+	private String postgrade;
+	private String certfication;
+	private String techeng;
+	private String exp;
 	private String preproject;
 
-	
-	//u.user_id,u.email_id,p.profile_id ,p.first_name,p.last_name,p.nuemail_id,p.phone,p.gender,p.undergrade,p.postgrade,p.techeng,p.exp,p.preproject
-	public PmsUserProfileDTO(	 
-	 long user_id,	
-	 //String username,
-	 String email_id,	 
-	 long profile_id,
-	 String first_name,	
-	 String last_name,	
-	 //String dob,	
-	 String nuemail_id,	
-	 //String address1,	
-	 //String address2,	
-	 //String city,	
-	 //String state,
-	 //String zip,
-	 String phone,	
-	 String gender,	
-	 String undergrade,	
-	 String postgrade,
-	// String certfication,	
-	 String techeng,
-	 String exp,
-	 String preproject) {
-		this.user_id=user_id;
-		this.username=username;
-		this.profile_id=profile_id;
-		this.first_name=first_name;
-		this.last_name=last_name;
-		this.dob=dob;
-		this.nuemail_id=nuemail_id;
-		this.address1=address1;
-		this.address2=address2;
-		this.city=city;
-		this.state=state;
-		this.zip=zip;
-		this.phone=phone;
-		this.gender=gender;
-		this.undergrade=undergrade;
-		this.postgrade=postgrade;
-		this.certfication=certfication;
-		this.techeng=techeng;
-		this.exp=exp;
-		this.preproject=preproject	;	
+	// u.user_id,u.email_id,p.profile_id
+	// ,p.first_name,p.last_name,p.nuemail_id,p.phone,p.gender,p.undergrade,p.postgrade,p.techeng,p.exp,p.preproject
+	public PmsUserProfileDTO(long user_id,
+			// String username,
+			String email_id, long profile_id, String first_name, String last_name,
+			// String dob,
+			String nuemail_id,
+			// String address1,
+			// String address2,
+			// String city,
+			// String state,
+			// String zip,
+			String phone, String gender, String undergrade, String postgrade,
+			// String certfication,
+			String techeng, String exp, String preproject) {
+		this.user_id = user_id;
+		this.username = username;
+		this.profile_id = profile_id;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.dob = dob;
+		this.nuemail_id = nuemail_id;
+		this.address1 = address1;
+		this.address2 = address2;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.phone = phone;
+		this.gender = gender;
+		this.undergrade = undergrade;
+		this.postgrade = postgrade;
+		this.certfication = certfication;
+		this.techeng = techeng;
+		this.exp = exp;
+		this.preproject = preproject;
 	}
 
 	public long getUser_id() {
@@ -235,6 +226,7 @@ public class PmsUserProfileDTO {
 	public void setPreproject(String preproject) {
 		this.preproject = preproject;
 	}
+
 	public String getUsername() {
 		return username;
 	}

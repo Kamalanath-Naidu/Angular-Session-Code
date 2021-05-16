@@ -1,0 +1,10 @@
+package com.player.management.pms.system.service;
+
+import org.springframework.data.repository.query.Param;
+
+import com.player.management.pms.system.dataAccessLayer.PmsJPAUserEntities;
+
+public interface UserService {
+
+	PmsJPAUserEntities userLoginAuthentication(String mail, String userpasscode);
+}

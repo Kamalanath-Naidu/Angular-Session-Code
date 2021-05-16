@@ -1,0 +1,5 @@
+package com.player.management.pms.system.rest;
+
+public class UserController {
+
+}

@@ -1,0 +1,41 @@
+package com.player.management.pms.system.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import com.player.management.pms.system.dataAccessLayer.PmsUserProfileDTO;
+import com.player.management.pms.system.dataAccessLayer.User;
+import com.player.management.pms.system.dataAccessLayer.UserRepository;
+import com.player.management.pms.system.service.UserService;
+
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@Override
+	public User userLoginAuthentication(String mail, String userpasscode) {
+		User usercreation = userRepository.userRegisterauth(userdata.getEmail_id(), userdata.getUsername());
+		return null;
+	}
+
+	@Override
+	public User userRegisterauth(String mail, String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User loginvalidation(String mail) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Page<PmsUserProfileDTO> findProfilebyUserIdPagination(Long userId, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}
